@@ -1,0 +1,111 @@
+{
+	"configuration": {
+		"header": {
+			"icon": "/Resources/icon_min.png"
+		},
+		"main": {
+			"icon": "/Resources/icon.png",
+			"title": "Welcome Matita!",
+			"subtitle": "Just a very simple blogging software written in Node.js"
+		},
+		"resume": {
+			"title": "Welcome Matita!",
+			"text": "Matita is a very simple open source blogging software created while learning more about Node.js and MongoDB.",
+			"cover": {
+				"src": "/Resources/cover.jpg",
+				"alternativeText": "Welcome Matita!",
+				"title": "Welcome Matita!"
+			}
+		},
+		"contacts": {
+			"enabled": true
+		},
+		"meta": {
+			"title": "Matita",
+			"keywords": [],
+			"description": "Just a very simple blogging software written in Node.js",
+			"subject": "Matita",
+			"copyright": "Matita",
+			"language": "en",
+			"author": "Enrico Sola",
+			"designer": "Enrico Sola",
+			"replyTo": "info@enricosola.com",
+			"owner": "Enrico Sola",
+			"siteName": "Matita",
+			"websiteTwitterNickname": "@isola.93",
+			"creatorTwitterNickname": "@isola.93",
+			"verification": {
+				"google": "",
+				"yandex": "",
+				"bing": "",
+				"norton": ""
+			},
+			"icons": {
+				"apple": {
+					"57x57": "/Resources/icons/apple-icon-57x57.png",
+					"60x60": "/Resources/icons/apple-icon-60x60.png",
+					"72x72": "/Resources/icons/apple-icon-72x72.png",
+					"76x76": "/Resources/icons/apple-icon-76x76.png",
+					"114x114": "/Resources/icons/apple-icon-114x114.png",
+					"120x120": "/Resources/icons/apple-icon-120x120.png",
+					"144x144": "/Resources/icons/apple-icon-144x144.png",
+					"152x152": "/Resources/icons/apple-icon-152x152.png",
+					"180x180": "/Resources/icons/apple-icon-180x180.png"
+				},
+				"android":{
+					"192x192": "/Resources/icons/android-icon-192x192.png",
+					"themeColor": "#FFFFFF",
+					"manifest": "/Resources/icons/manifest.json"
+				},
+				"favicon": {
+					"96x96": "/Resources/icons/favicon-96x96.png",
+					"32x32": "/Resources/icons/favicon-32x32.png",
+					"16x16": "/Resources/icons/favicon-16x16.png"
+				},
+				"microsoft": {
+					"tileImage": "/Resources/icons/ms-icon-144x144.png",
+					"tileColor": "#FFFFFF"
+				}
+			}
+		},
+		"footerBar": {
+			"copyright": "Copyright © by Matita"
+		}
+	},
+	"social":[
+		{
+			"id": "facebook",
+			"link": "http://"
+		}, {
+			"id": "twitter",
+			"link": "http://"
+		}
+	],
+	"components": {
+		"header": "components/header.html",
+		"lateral": "components/lateral.html",
+		"footer": "components/footer.html",
+		"forms": "components/forms.html",
+		"commons": "components/commons.html",
+		"metatags": "components/meta.html",
+		"cookielaw": "components/cookie_law.html"
+	},
+	"feed": {
+		"enabled": true,
+		"title": "My blog",
+		"description": "This is my wonderful blog!"
+	},
+	"mail": {
+		"generic": {
+			"coverImage": "/Resources/mail_cover.png",
+			"title": "My blog",
+			"subtitle": ""
+		},
+		"newsletter": {
+			"coverImage": "/Resources/mail_cover.png",
+			"title": "My blog",
+			"subtitle": "Your newsletter from my blog.",
+			"subject": "Your newsletter from my blog."
+		}
+	}
+}

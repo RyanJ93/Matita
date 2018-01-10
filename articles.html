@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		{metatags}
+		<link rel="stylesheet" href="/Resources/library.css" />
+		<link rel="stylesheet" href="/Resources/theme.css" />
+		<script type="text/javascript" src="/Resources/library.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+	</head>
+	<body onload="Blog.loadArticles().loadArticles('featured').loadTags();">
+		{header}
+		<section class="common-slide common-slide-margin">
+			<div id="common-slide-main">
+				<p class="common-text articles-title" id="articles-title"></p><p class="common-text articles-subtitle" id="articles-subtitle"></p>
+				<div id="articles-loader" title="Loading articles..."></div>
+				<div id="articles-error">
+					<span id="articles-error-text" class="common-text articles-error-text">Unable to load articles.</span>
+					<button class="common-text articles-error-button" id="articles-error-button" title="Retry" onclick="Blog.loadArticles();">Retry</button>
+				</div>
+				<ul id="articles-list"></ul>
+			</div>{lateral}
+		</section>{footer}{forms}{commons}{cookielaw}
+	</body>
+</html>

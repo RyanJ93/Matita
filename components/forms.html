@@ -1,0 +1,51 @@
+<form action="/login" method="post" accept-charset="utf-8" id="form-login" class="form" onsubmit="User.Authenticator.triggerLogin(event);">
+	<p class="form-title common-text">Login with your credentials</p>
+	<label for="form-login-email" class="form-label common-text form-label-no-margin">E-Mail</label>
+	<input type="email" id="form-login-email" name="email" placeholder="E-Mail" class="form-input common-text" required="true" />
+	<label for="form-login-password" class="form-label common-text">Password</label>
+	<input type="password" id="form-login-password" name="password" placeholder="Password" class="form-input common-text" min="6" max="32" maxlength="32" required="true" />
+	<label for="form-login-remember" class="common-text form-label form-label-inline">Remember me</label><input type="checkbox" id="form-login-remember" />
+	<br />
+	<input type="reset" class="form-button common-text" value="Cancel" onclick="User.Authenticator.cancelLogin(event);" /><input type="submit" class="form-button common-text" value="Login" />
+</form>
+<form action="/register" method="post" accept-charset="utf-8" id="form-register" class="form" onsubmit="User.Authenticator.triggerRegistration(event);">
+	<p class="form-title common-text">Create your account</p>
+	<label for="form-register-name" class="form-label common-text form-label-no-margin">Name</label>
+	<input type="text" id="form-register-name" name="name" placeholder="Name" class="form-input common-text" min="6" max="32" maxlength="32" required="true" />
+	<label for="form-register-surname" class="form-label common-text">Surname</label>
+	<input type="text" id="form-register-surname" name="surname" placeholder="Surname" class="form-input common-text" min="6" max="32" maxlength="32" required="true" />
+	<label for="form-register-email" class="form-label common-text">E-Mail</label>
+	<input type="email" id="form-register-email" name="email" placeholder="E-Mail" class="form-input common-text" required="true" />
+	<label for="form-register-password" class="form-label common-text">Password</label>
+	<input type="password" id="form-register-password" name="password" placeholder="Password" class="form-input common-text" min="6" max="32" maxlength="32" required="true" />
+	<input type="reset" class="form-button common-text" value="Cancel" onclick="User.Authenticator.cancelRegistration(event);" /><input type="submit" class="form-button common-text" value="Register" />
+</form>
+<form action="/create-post" method="post" accept-charset="utf-8" id="form-post-creation" class="form" onsubmit="Blog.triggerCreation(event);">
+	<p class="form-title common-text">Create a new post</p>
+	<label for="form-post-creation-title" class="form-label common-text form-label-no-margin">Title</label>
+	<input type="text" id="form-post-creation-title" name="title" placeholder="Title" class="form-input common-text" required="true" />
+	<label for="form-post-creation-text" class="form-label common-text">Text</label>
+	<textarea id="form-post-creation-text" name="text" placeholder="Text" class="form-textarea common-text" required="true"></textarea>
+	<label for="form-post-creation-tags" class="form-label common-text">Tags (comma separated)</label>
+	<input type="text" id="form-post-creation-tags" name="tags" placeholder="Tags" class="form-input common-text" />
+	<label for="form-post-creation-url" class="form-label common-text">URL</label>
+	<input type="text" id="form-post-creation-url" name="url" placeholder="URL" class="form-input common-text" required="true" />
+	<label class="form-label common-text">Cover picture</label>
+	<div id="form-post-creation-cover" class="form-cover" ondragover="Blog.dragOverUploader(event);" ondragenter="Blog.dragOverUploader(event);" ondragleave="Blog.dragLeaveUploader(event);" ondragend="Blog.dragLeaveUploader(event);" ondrop="Blog.setUploaderFile(event);">
+		<div id="form-post-creation-cover-wrapper">
+			<div id="form-post-creation-cover-wrapper-inner">
+				<div id="form-post-creation-cover-wrapper-inner-container">
+					<span class="common-text form-cover-title" id="form-post-creation-cover-wrapper-inner-container-title">Drag and drop here the cover picture</span>
+					<button class="common-text form-cover-button common-text" id="form-post-creation-cover-wrapper-inner-container-button" title="Or select a file" onclick="Blog.openUploaderPicker(event);">Or select a file</button>
+				</div>
+			</div>
+		</div>
+		<div id="form-post-creation-cover-preview">
+			<div id="form-post-creation-cover-preview-reset" scope="remove" title="Remove cover picture" onclick="Blog.resetUploader();" class="form-cover-reset"></div>
+			<div id="form-post-creation-cover-preview-image" class="form-cover-preview"></div>
+		</div>
+		<input type="file" id="form-post-creation-cover-input" onchange="Blog.setUploaderFile(event);" />
+	</div>
+	<input type="reset" class="form-button common-text" value="Cancel" onclick="Blog.cancelCreation(event);" /><input type="submit" class="form-button common-text" value="Create" />
+</form>
+<div id="form-overlay" class="form-overlay" onclick="UI.form.hideAll();"></div>

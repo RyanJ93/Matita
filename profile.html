@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		{metatags}
+		<link rel="stylesheet" href="/Resources/library.css" />
+		<link rel="stylesheet" href="/Resources/theme.css" />
+		<script type="text/javascript" src="/Resources/library.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+	</head>
+	<body onload="Blog.loadArticles('featured').loadTags();Comment.loadComments(true);">
+		{header}
+		<section class="common-slide common-slide-margin">
+			<div id="common-slide-main">
+				<p class="common-text profile-title">User details:</p>
+				<div id="profile-picture" class="profile-divider">
+					<div id="profile-picture-image" class="profile-picture"></div>
+				</div><div id="profile-info">
+					<p id="profile-info-name" class="common-text profile-name">{profile.completeName}</p>
+					<p id="profile-info-date" class="common-text profile-date">Join date: {profile.date}</p>
+					<p id="profile-info-comments-count" class="common-text profile-comments-count">Comments count: {profile.commentsCount}</p>
+					<p id="profile-info-articles-count" class="common-text profile-articles-count" admin="{profile.admin}">Articles count: {profile.articlesCount}</p>
+					<span admin="{profile.admin}" id="profile-info-admin" class="common-text profile-admin-badge">Admin</span>
+					<button show="{profile.loggedIn}" id="profile-info-edit" title="Edit your profile" class="common-text profile-edit-button" onclick="UI.form.showUserEdit();">Edit your profile</button>
+					<br />
+					<a class="common-text profile-author-link" id="profile-info-author-link" title="See all articles written by this user." href="/author/{profile.id}" admin="{profile.admin}">See all articles</a>
+					<br />
+					<a class="common-text profile-delete-link" id="profile-info-delete-link" title="Remove your account." href="javascript:void(0);" show="{profile.loggedIn}" onclick="User.deleteCurrentUser();">Remove your account</a>
+				</div>
+				<div id="profile-comments" class="profile-comments">
+					<p class="common-text profile-title">User comments:</p>
+					<div id="profile-comments-loader">
+						<div id="profile-comments-loader-image" class="common-preloader-icon" title="Loading comments..."></div>
+					</div>
+					<div id="profile-comments-error">
+						<p class="" id="profile-comments-error-text">Unable to load comments</p>
+						<button class="" id="profile-comments-error-button" title="Retry">Retry</button>
+					</div>
+					<ul id="profile-comments-list"></ul>
+				</div>
+				<form id="profile-edit" accept-charset="utf-8" action="/user.edit" method="post" class="form" onsubmit="Utils.preventFormSubmit(event);" autocomplete="off">
+					<p class="common-text profile-edit-title">Edit your profile</p>
+					<input type="text" placeholder="Name" title="Name" class="common-text profile-edit-field" id="profile-edit-field-name" value="{profile.name}" />
+					<input type="hidden" value="{profile.name}" id="profile-edit-field-name-old" />
+					<input type="text" placeholder="Surname" title="Surname" class="common-text profile-edit-field" id="profile-edit-field-surname" value="{profile.surname}" />
+					<input type="hidden" value="{profile.surname}" id="profile-edit-field-surname-old" />
+					<input type="email" placeholder="E-Mail" title="E-Mail" class="common-text profile-edit-field" id="profile-edit-field-email" value="{profile.email}" />
+					<input type="hidden" value="{profile.email}" id="profile-edit-field-email-old" />
+					<button class="common-text profile-edit-button" title="Revert" onclick="User.revertInfo();">Revert</button><button class="common-text profile-edit-button profile-edit-button-save" title="Save" onclick="User.edit();">Save</button>
+					<p class="common-text profile-edit-title profile-edit-title-margin">Change password</p>
+					<input type="password" placeholder="Current password" title="Current password" class="common-text profile-edit-field" id="profile-edit-field-current-password" />
+					<input type="password" placeholder="New password" title="New password" class="common-text profile-edit-field" id="profile-edit-field-new-password" />
+					<input type="password" placeholder="Confirm password" title="Confirm password" class="common-text profile-edit-field" id="profile-edit-field-confirm-password" />
+					<button class="common-text profile-edit-button profile-edit-button-save" title="Change password" onclick="User.changePassword();">Change password</button>
+				</form>
+			</div>{lateral}
+		</section>{footer}{forms}{commons}{cookielaw}
+	</body>
+</html>

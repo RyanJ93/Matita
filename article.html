@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		{metatags}
+		<link rel="stylesheet" href="/Resources/library.css" />
+		<link rel="stylesheet" href="/Resources/theme.css" />
+		<script type="text/javascript" src="/Resources/library.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+	</head>
+	<body onload="Blog.loadArticles('suggested').loadTags();Comment.loadComments();">
+		{header}
+		<section class="common-slide common-slide-margin">
+			<div id="common-slide-main">
+				<article id="article" class="article">
+					<p id="article-title" class="common-text article-title">{article.title}</p>
+					<span id="article-date" class="common-text article-date">{article.date}</span>
+					<div id="article-cover" cover="{article.cover}" style="background-image:url('/covers/{article.cover}');" class="article-cover"></div>
+					<p id="article-text" class="common-text article-text">{article.text}</p>
+					<br /><br />
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+						<a class="a2a_button_google_plus"></a>
+						<a class="a2a_button_pinterest"></a>
+						<a class="a2a_button_linkedin"></a>
+						<a class="a2a_button_telegram"></a>
+						<a class="a2a_button_vk"></a>
+						<a class="a2a_button_whatsapp"></a>
+					</div>
+					<script async src="https://static.addtoany.com/menu/page.js"></script>
+					<br />
+					<span id="article-author" class="common-text article-author">Written by <a href="/author/{article.author.id}" title="Articles by this author" class="article-author-link">{article.author.completeName}</a></span>
+					<span id="article-tags" class="article-tags common-text">{article.tags}</span>
+					<br />
+					<span class="article-views common-text" id="article-views">Views: {article.views}</span>
+					<div id="article-counters" class="article-counters">
+						<span class="article-counters-counter common-text" id="article-counters-counter-likes">{article.likes}</span>
+						<div class="article-counters-icon" scope="like" onclick="Appreciation.toggle(true, null);" selected="{article.appreciations.like}"></div>
+						<span class="article-counters-counter common-text" id="article-counters-counter-dislikes">{article.dislikes}</span>
+						<div class="article-counters-icon" scope="dislike" onclick="Appreciation.toggle(false, null);" selected="{article.appreciations.dislike}"></div>
+						<span class="article-counters-counter common-text" id="article-counters-counter-comments">{article.comments}</span>
+						<div class="article-counters-icon" scope="comment"></div>
+					</div>
+				</article>
+				<div id="article-comments" class="article-comment">
+					<form action="/create-comment" method="post" accept-charset="utf-8" id="article-comments-editor" class="article-comment-editor">
+						<span id="article-comments-editor-author" class="common-text article-comment-author">{generic.userName}</span>
+						<textarea id="article-comments-editor-textarea" class="common-text article-comment-textarea" placeholder="Your comment..." onkeypress="Comment.triggerCreation(event);"></textarea>
+					</form>
+					<div id="article-comments-loader">
+						<div class="common-loader-spinner" id="article-comments-loader-spinner" title="Loading comments..."></div>
+					</div>
+					<div id="article-comments-error">
+						<span id="article-comments-error-text" class="common-text article-comment-error">Unable to load comments.</span>
+						<button id="article-comments-error-button" class="common-text article-comment-error-button" title="Retry" onclick="Comment.loadComments();">Retry</button>
+					</div>
+					<ul id="article-comments-list"></ul>
+				</div>
+			</div>{lateral}
+		</section>{footer}{forms}{commons}{cookielaw}
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		{metatags}
+		<link rel="stylesheet" href="/Resources/library.css" />
+		<link rel="stylesheet" href="/Resources/theme.css" />
+		<script type="text/javascript" src="/Resources/library.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+	</head>
+	<body onload="Blog.loadArticles().loadArticles('featured').loadTags();">
+		{header}
+		<section class="common-slide home-slide" id="home-presentation">
+			<div id="home-logo" style="background-image:url({main.icon});"></div>
+			<h1 id="home-title" class="common-text home-title">{main.title}</h1>
+			<h2 id="home-slogan" class="common-text home-slogan">{main.subtitle}</h2>
+		</section>
+		<section class="common-slide">
+			<div id="common-slide-main">
+				<div id="home-articles-loader" title="Loading articles..." class="common-preloader"></div>
+				<div id="home-articles-error">
+					<button class="common-text home-error-button" id="home-articles-error-button" title="Retry" onclick="Blog.loadArticles();">Retry</button>
+					<span id="home-articles-error-text" class="common-text home-error-text">Unable to load articles.</span>
+				</div>
+				<ul id="home-articles-list"></ul>
+			</div>{lateral}
+		</section>{footer}{forms}{commons}{cookielaw}
+	</body>
+</html>

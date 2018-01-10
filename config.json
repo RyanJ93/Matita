@@ -1,0 +1,22 @@
+{
+	"port": 3000,
+	"contacts": {
+		"info": "sola.enrico.93@gmail.com"
+	},
+	"database": {
+		"address": "127.0.0.1",
+		"port": "27017",
+		"name": "test"
+	},
+	"https":{
+		
+	},
+	"domain": "www.blog.com",
+	"mail": {
+		"sendmail": "/usr/sbin/sendmail",
+		"from": {
+			"generic": "info@myblog.com",
+			"newsletter": "info@myblog.com"
+		}
+	}
+}

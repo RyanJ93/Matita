@@ -1,0 +1,40 @@
+<header id="header" class="nav">
+	<a class="header-link-null" title="Home page" href="/">
+		<div id="header-icon" title="Home page" style="background-image:url({header.icon});"></div>
+	</a>
+	<nav id="header-inner">
+		<a class="header-inner-link common-text nav-link" href="/" title="Home">Home</a>
+		<a class="header-inner-link header-inner-link-separator common-text nav-link" href="/articles" title="Articles">Articles</a>
+		<a class="header-inner-link header-inner-link-separator common-text nav-link" href="/about" title="About">About</a>
+		<a class="header-inner-link header-inner-link-separator common-text nav-link" href="/search" title="Search">Search</a>
+		<div class="header-inner-group" authenticated="{user.auth}">
+			<a class="header-inner-group-link common-text nav-link" onclick="UI.form.showRegistration();" href="javascript:void(0);" title="Register">Register</a>
+			<a class="header-inner-group-link common-text nav-link" onclick="UI.form.showLogin();" href="javascript:void(0);" title="Login">Login</a>
+		</div>
+		<div class="header-inner-group" authenticated="{user.auth}" scope="logout">
+			<a class="header-inner-group-link common-text nav-link" onclick="User.Authenticator.logout();" href="javascript:void(0);" title="Logout">Logout</a>
+		</div>
+		<div id="header-inner-menu-opener" onclick="UI.menu.toggle();" title="Open menu"></div>
+		<ul id="header-inner-menu" class="nav-mobile">
+			<li class="header-inner-menu-element nav-mobile-element noselect">
+				<a class="header-inner-menu-element-link common-text nav-link-mobile" href="/articles" title="Articles">Articles</a>
+			</li>
+			<li class="header-inner-menu-element nav-mobile-element noselect">
+				<a class="header-inner-menu-element-link common-text nav-link-mobile" href="/about" title="About">About</a>
+			</li>
+			<li class="header-inner-menu-element nav-mobile-element header-inner-menu-element-padding noselect">
+				<a class="header-inner-menu-element-link common-text nav-link-mobile" href="/search" title="Search">Search</a>
+			</li>
+			<li class="header-inner-menu-element nav-mobile-element header-inner-menu-element-margin noselect" authenticated="{user.auth}">
+				<a class="header-inner-menu-element-link common-text nav-link-mobile" onclick="UI.form.showLogin();" href="javascript:void(0);" title="Login">Login</a>
+			</li>
+			<li class="header-inner-menu-element nav-mobile-element noselect" authenticated="{user.auth}">
+				<a class="header-inner-menu-element-link common-text nav-link-mobile" onclick="UI.form.showRegistration();" href="javascript:void(0);" title="Register">Register</a>
+			</li>
+			<li class="header-inner-menu-element nav-mobile-element noselect" authenticated="{user.auth}" scope="logout">
+				<a class="header-inner-menu-element-link common-text nav-link-mobile" onclick="User.Authenticator.logout();" href="javascript:void(0);" title="Logout">Logout</a>
+			</li>
+		</ul>
+	</nav>
+</header>
+<div id="header-overlay" class="nav-overlay" onclick="UI.menu.close();"></div>

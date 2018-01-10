@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		{metatags}
+		<link rel="stylesheet" href="/Resources/library.css" />
+		<link rel="stylesheet" href="/Resources/theme.css" />
+		<script type="text/javascript" src="/Resources/library.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+	</head>
+	<body onload="Blog.loadArticles('featured').loadTags();">
+		{header}
+		<section class="common-slide common-slide-margin">
+			<div id="common-slide-main" class="error-slide">
+				<p class="common-text error-title" id="error-title">{error.code}</p>
+				<p class="common-text error-message" id="error-message">{error.message}</p>
+				<form accept-charset="utf-8" action="/search" method="get" id="error-search">
+					<p class="common-text error-text" id="error-text">Search for something instead</p>
+					<input type="search" class="common-text error-input" id="error-search-input" name="q" placeholder="Search for something..." />
+					<input type="submit" class="common-text error-button" id="error-search-button" value="Search" />
+				</form>
+			</div>{lateral}
+		</section>{footer}{forms}{commons}{cookielaw}
+	</body>
+</html>

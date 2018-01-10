@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		{metatags}
+		<link rel="stylesheet" href="/Resources/library.css" />
+		<link rel="stylesheet" href="/Resources/theme.css" />
+		<script type="text/javascript" src="/Resources/library.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+	</head>
+	<body onload="Blog.loadArticles('featured').loadTags();User.getUsers();">
+		{header}
+		<section class="common-slide common-slide-margin">
+			<div id="common-slide-main">
+				<p class="common-text users-title" id="users-title">Registered users and admins:</p>
+				<div id="users-loader">
+					<div class="common-preloader-icon" id="users-loader-icon" title="Loading users..."></div>
+				</div>
+				<div id="users-error">
+					<span class="common-text users-error-text" id="users-error-text">Unable to load users.</span>
+					<button class="common-text users-error-button" id="users-error-button" title="Retry">Retry</button>
+				</div>
+				<ul id="users-list"></ul>
+			</div>{lateral}
+		</section>{footer}{forms}{commons}{cookielaw}
+	</body>
+</html>

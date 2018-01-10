@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		{metatags}
+		<link rel="stylesheet" href="/Resources/library.css" />
+		<link rel="stylesheet" href="/Resources/theme.css" />
+		<script type="text/javascript" src="/Resources/library.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+	</head>
+	<body onload="Blog.loadArticles('search').loadArticles('featured').loadTags();">
+		{header}
+		<section class="common-slide common-slide-margin">
+			<div id="common-slide-main">
+				<form accept-charset="utf-8" action="/get-articles" method="post" id="search-form" onsubmit="Blog.resetSearch(event);">
+					<p id="search-title" class="common-text search-title">Search in the blog</p>
+					<p id="search-subtitle" class="common-text search-subtitle">Search in the blog</p>
+					<input type="search" class="common-text search-input" id="search-input" placeholder="Search for something..." onchange="Blog.resetSearch();" />
+				</form>
+				<div id="search-loader" title="Searching for articles..."></div>
+				<div id="search-error">
+					<span id="search-error-text" class="common-text">Unable to load articles.</span>
+					<button class="common-text common-button" id="search-error-button" title="Retry" onclick="Blog.loadArticles();">Retry</button>
+				</div>
+				<ul id="search-list"></ul>
+			</div>{lateral}
+		</section>{footer}{forms}{commons}{cookielaw}
+	</body>
+</html>

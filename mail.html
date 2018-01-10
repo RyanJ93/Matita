@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+		<style type="text/css">
+			#header{
+				text-align:center;
+				margin-bottom:24px;
+			}
+			
+			.slide{
+				width:100%;
+				max-width:800px;
+				margin:auto;
+				padding:12px;
+				box-sizing:border-box;
+			}
+			
+			#main-logo{
+				width:128px;
+				height:128px;
+				background-position:center;
+				background-size:cover;
+				background-repeat:no-repeat;
+				margin:auto;
+				margin-bottom:24px;
+			}
+			
+			#main-title, #main-title:active{
+				font-family:'Raleway', sans-serif;
+				font-size:24px;
+				color:#666;
+				text-decoration:none;
+				cursor:pointer;
+				transition:color 250ms;
+			}
+			
+			#main-title:hover, #main-article-title:hover, #main-article-read-more:hover, #main-article-author:hover, .main-article-tags-element:hover{
+				color:rgb(23, 147, 190) !important;
+			}
+			
+			#main-subtitle{
+				font-family:'Raleway', sans-serif;
+				font-size:16px;
+				color:#666;
+				margin:0;
+				font-weight:200;
+			}
+			
+			#main-article-title, #main-article-title:active{
+				font-family:'Raleway', sans-serif;
+				font-size:16px;
+				color:#666;
+				margin:0;
+				margin-bottom:6px;
+				text-decoration:none;
+				cursor:pointer;
+				transition:color 250ms;
+			}
+			
+			#main-article-text{
+				font-family:'Raleway', sans-serif;
+				font-size:12px;
+				color:#666;
+				margin:0;
+				padding:0px;
+				margin-top:24px;
+			}
+			
+			#main-article-read-more, #main-article-read-more:active{
+				font-family:'Raleway', sans-serif;
+				font-size:12px;
+				color:#666;
+				cursor:pointer;
+				text-decoration:none;
+				text-transform:uppercase;
+				transition:color 250ms;
+			}
+			
+			#main-article-author, #main-article-author:active{
+				font-family:'Raleway', sans-serif;
+				font-size:12px;
+				color:#666;
+				cursor:pointer;
+				text-decoration:none;
+				transition:color 250ms;
+			}
+			
+			#main-article-cover-link{
+				cursor:pointer;
+			}
+			
+			#main-article-cover{
+				width:100%;
+				background-position:center;
+				background-size:cover;
+				background-repeat:no-repeat;
+				margin-top:24px;
+				background-color:#FFF;
+				border-radius:3px;
+			}
+			
+			#main-article-cover:after{
+				content:'';
+				display:block;
+				padding-bottom:50%;
+			}
+			
+			#main-article-tags{
+				font-family:'Raleway', sans-serif;
+				font-size:12px;
+				color:#666;
+			}
+			
+			.main-article-tags-element, .main-article-tags-element:active{
+				cursor:pointer;
+				text-decoration:none;
+				transition:color 250ms;
+				color:#666;
+			}
+			
+			.footer-text{
+				font-family:'Raleway', sans-serif;
+				font-size:12px;
+				color:#666;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="slide" id="header">{header}</header>
+		<section class="slide">
+			<a id="main-article-title" href="{link}" title="Read the article.">{title}</a>
+			{cover}
+			<p id="main-article-text">{text}</p>
+			<br /><br />
+			{tags}{author}
+			<a id="main-article-read-more" href="{readMore}" title="Read the article.">Read more</a>
+		</section>
+		<footer class="slide">
+			<span class="footer-text">To unsubscribe from the newsletter please click <a href="{url}/unsubscribe?token={email}" target="_blank" title="Unsubscribe.">here</a></span>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		{metatags}
+		<link rel="stylesheet" href="/Resources/library.css" />
+		<link rel="stylesheet" href="/Resources/theme.css" />
+		<script type="text/javascript" src="/Resources/library.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+	</head>
+	<body onload="Blog.loadArticles('featured').loadTags();">
+		{header}
+		<section class="common-slide common-slide-margin">
+			<div id="common-slide-main">
+				<p class="common-text about-title" id="about-title">My blog</p>
+				<p class="common-text about-subtitle" id="about-subtitle">Just a random blog created to try out Node.JS</p>
+				<div id="about-cover" class="about-cover"></div>
+				<p class="common-text about-text" id="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id sagittis nulla. Praesent sagittis augue arcu, a gravida ligula commodo et. Phasellus elit mauris, porttitor non aliquet ac, dignissim eu dui. Nam et nibh eget nulla consectetur iaculis. Nam in est tempor, volutpat nulla sed, tincidunt metus. Etiam at blandit eros. Maecenas molestie posuere est, in auctor purus congue quis. Integer gravida ipsum id aliquet venenatis. <br /><br />Cras eleifend, sem vel pellentesque hendrerit, diam velit blandit mauris, sit amet feugiat neque est vitae dolor. Integer in odio orci. Aliquam erat volutpat. In hac habitasse platea dictumst. Fusce nec ipsum sit amet nibh volutpat condimentum. Praesent vehicula ligula in sapien vulputate placerat. Aliquam erat volutpat. Cras porttitor sollicitudin orci, ut ullamcorper nunc euismod at. Quisque sed diam sed nisi vehicula rhoncus vel gravida ex. Integer purus turpis, pharetra ut semper in, fermentum in sapien. Nullam elementum sodales varius. Vestibulum ultricies nec nibh vitae condimentum. Donec suscipit quam nec pretium tincidunt. Vestibulum vitae auctor velit. Sed bibendum a ante vitae vestibulum. <br /><br />Sed commodo porta nunc. Proin urna metus, congue dictum tortor vel, condimentum cursus elit. Nullam non fermentum est, eu laoreet sapien. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus tristique eget dui vitae aliquet. Cras eget aliquam mi, eget rhoncus quam. Morbi pulvinar lacus id urna pretium, eu suscipit ante lobortis. Praesent non maximus ligula, sed iaculis lorem. Maecenas viverra laoreet mi a elementum. Sed sem magna, interdum at facilisis a, rhoncus quis erat. Mauris in porttitor lorem. Sed pretium orci id elit commodo accumsan. Aliquam ipsum leo, rhoncus a semper in, pellentesque non risus. Mauris id maximus massa. <br /><br />Nam eget lacus orci. Mauris scelerisque facilisis quam id accumsan. Ut rhoncus ex sagittis dolor dapibus, vitae posuere nisi pharetra. Donec pellentesque nec lectus nec semper. Nullam molestie ornare enim, sed sagittis sem consequat vel. Nulla ultricies, lacus ut sagittis fermentum, velit mauris ornare dui, at varius lacus lacus ac enim. Phasellus bibendum, nisl at tempus imperdiet, lorem mi sagittis ipsum, sit amet luctus ex elit non purus. Vestibulum libero dui, ultrices ac lacus id, semper mattis tellus. Suspendisse interdum dui sit amet tellus pretium, ac venenatis lorem ullamcorper. Duis non efficitur nisi. Phasellus at nibh efficitur, pharetra purus id, mollis lorem. Aliquam ac dolor elementum mi luctus lacinia. Vestibulum viverra lacinia viverra. Donec aliquet sem lacus, eu maximus neque tempor eget. Maecenas fringilla faucibus dolor et tincidunt. Praesent vitae eleifend ligula. <br /><br />Mauris tempor magna dolor, a porttitor tellus suscipit sed. Sed dictum justo et ligula commodo iaculis. Nullam non commodo metus. Nunc auctor laoreet magna, at aliquet dolor viverra id. Nulla imperdiet ante non rhoncus molestie. Aliquam sit amet sem eget libero sodales rutrum. Integer sit amet mauris eu lorem eleifend porttitor. Nulla quis urna tempor, maximus nisl vel, feugiat quam. Donec at dolor maximus, consectetur augue ac, malesuada magna. In ultricies lorem nec egestas eleifend.</p>
+				<form id="about-contact" accept-charset="utf-8" enabled="{contacts.enabled}" class="about-contact" onsubmit="Contact.sendMessage(event);">
+					<p class="common-text about-contact-title" id="about-contact-title">Contact us</p>
+					<p class="common-text about-contact-subtitle" id="about-contact-subtitle">Wanna suggest something or have some questions? Feel free to drop us a line.</p>
+					<input type="text" class="common-text about-contact-input" id="about-contact-name" placeholder="Your name" value="{generic.name}" />
+					<input type="email" class="common-text about-contact-input" id="about-contact-email" placeholder="Your e-mail address" required="true" value="{generic.email}" />
+					<textarea class="common-text about-contact-input" id="about-contact-message" placeholder="What's up?" required="true"></textarea>
+					<p class="common-text about-contact-privacy" id="about-contact-privacy">By sending this message you allow us to handle your personal information according to privacy laws.</p>
+					<input type="submit" class="common-text about-contact-button" id="about-contact-button" value="Send" title="Send" />
+				</form>
+			</div>{lateral}
+		</section>{footer}{forms}{commons}{cookielaw}
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<div id="common-slide-lateral">
+	<section class="common-slide-lateral-section lateral-section">
+		<span class="common-slide-lateral-section-title common-text lateral-title">{resume.title}</span>
+		<img src="{resume.cover.src}" class="common-slide-lateral-section-cover lateral-cover" alt="{resume.cover.alternativeText}" title="{resume.cover.title}" />
+		<p class="common-slide-lateral-section-text common-text lateral-text">{resume.text}</p>
+		<br />
+		<a class="common-slide-lateral-section-link common-text lateral-link" title="More information" href="/about">More info</a>
+	</section>
+	<section class="common-slide-lateral-section lateral-section">
+		<span class="common-slide-lateral-section-title common-text lateral-title">Subscribe to the newsletter!</span>
+		<form action="/newsletter.subscribe" method="post" accept-charset="utf-8" id="common-slide-lateral-section-form" onsubmit="Newsletter.triggerSubscribe(event);">
+			<input type="email" placeholder="Your e-mail address" class="common-slide-lateral-section-form-input common-text lateral-input" id="common-slide-lateral-section-form-input-email" name="email" autocomplete="off" />
+			<input type="submit" value="Subscribe" class="common-slide-lateral-section-form-button common-text lateral-button" />
+		</form>
+	</section>
+	<section class="common-slide-lateral-section lateral-section" count="{social.count}">
+		<span class="common-slide-lateral-section-title common-text lateral-title">Follow us on social networks</span>
+		{social.html}
+	</section>
+	<section class="common-slide-lateral-section lateral-section">
+		<span class="common-slide-lateral-section-title common-text lateral-title">Featured articles</span>
+		<div id="common-slide-lateral-section-loader" class="common-preloader" title="Loading articles..."></div>
+		<div id="common-slide-lateral-section-error">
+			<span id="common-slide-lateral-section-articles-error-text" class="common-text lateral-articles-error-text">Unable to load featured articles</span>
+			<button id="common-slide-lateral-articles-error-button" class="common-text lateral-articles-error-button" title="Retry" onclick="Blog.loadArticles(Blog.lateralScope);">Retry</button>
+		</div>
+		<ul id="common-slide-lateral-section-list"></ul>
+	</section>
+	<section class="common-slide-lateral-section lateral-section">
+		<span class="common-slide-lateral-section-title common-text lateral-title">Most popular tags</span>
+		<div id="common-slide-lateral-section-tags-loader" class="common-preloader" title="Loading popular tags..."></div>
+		<div id="common-slide-lateral-section-tags-error">
+			<span id="common-slide-lateral-section-tags-error-text" class="common-text lateral-tags-error-text">Unable to load popular tags</span>
+			<button id="common-slide-lateral-articles-tags-error-button" class="common-text lateral-tags-error-button" title="Retry" onclick="Blog.loadArticles(Blog.lateralScope);">Retry</button>
+		</div>
+		<ul id="common-slide-lateral-section-tags-list"></ul>
+	</section>
+	<section class="common-slide-lateral-section lateral-section" admin="{user.admin}">
+		<span class="common-slide-lateral-section-title common-text lateral-title">Admin tools</span>
+		<ul id="common-slide-lateral-section-tools">
+			<li class="common-slide-lateral-section-tools-element">
+				<a class="common-slide-lateral-section-tools-element-link common-text lateral-tools-element-link" target="_blank" href="/users" title="List registered users">List registered users</a>
+			</li>
+			<li class="common-slide-lateral-section-tools-element">
+				<a class="common-slide-lateral-section-tools-element-link common-text lateral-tools-element-link" onclick="UI.form.showCreation();" href="javascript:void(0);" title="Create a new article">Create a new article</a>
+			</li>
+		</ul>
+	</section>
+</div>
