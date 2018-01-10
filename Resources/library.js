@@ -715,7 +715,7 @@ var User = {
 				continue;
 			}
 			var element = document.createElement('li');
-			element.className = 'users-list-element';
+			element.className = 'users-list-element users-element';
 			element.setAttribute('uid', data[i].id);
 			var name = document.createElement('span');
 			name.className = 'common-text users-element-name';
@@ -768,7 +768,7 @@ var User = {
 			return;
 		}
 		var connection = Utils.makeConnection();
-		connection.open('POST', '/user.remove', true);
+		connection.open('POST', '/user.delete', true);
 		connection.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		connection.onreadystatechange = function(){
 			if ( connection.readyState > 3 ){
@@ -1028,7 +1028,9 @@ var Blog = {
 				params += '&action=author&page=' + this.page + '&author=' + encodeURIComponent(buffer.value);
 				var title = document.getElementById('articles-title');
 				title.style.display = 'block';
-				title.textContent = 'Showing all articles written by ' + document.getElementById('author-name').value;
+				var container = document.createElement('span');
+				container.textContent = document.getElementById('author-name').value;
+				title.innerHTML = 'Showing all articles written by <a href="/profile/' + encodeURIComponent(document.getElementById('author-id').value) + '" class="common-text articles-author" title="Author profile.">' + container.textContent + '</a>';
 				if ( this.page === 1 ){
 					params += '&includeCount=1';
 				}

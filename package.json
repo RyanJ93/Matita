@@ -1,0 +1,27 @@
+{
+	"name": "matita",
+	"version": "1.1.0",
+	"description": "Just a very simple blogging software written in Node.js",
+	"main": "app.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/RyanJ93/Matita.git"
+	},
+	"author": "Enrico Sola",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/RyanJ93/Matita/issues"
+	},
+	"homepage": "https://github.com/RyanJ93/Matita#readme",
+	"dependencies": {
+		"body-parser": "^1.18.2",
+		"cookie-parser": "^1.4.3",
+		"express": "^4.16.2",
+		"express-session": "^1.15.6",
+		"mongodb": "^3.0.1",
+		"nodemailer": "^4.4.1"
+	}
+}

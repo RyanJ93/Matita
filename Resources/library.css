@@ -527,6 +527,12 @@ input[type="text"], input[type="search"], input[type="password"], input[type="em
 	display:none;
 }
 
+.articles-author{
+	cursor:pointer;
+	text-decoration:none;
+	transform:color 250ms;
+}
+
 .articles-list-element{
 	list-style:none;
 	width:100%;
@@ -1144,6 +1150,11 @@ textarea.about-contact-input{
 	margin:0;
 }
 
+.users-list-element:first-child{
+	padding-top:0px !important;
+	border:none !important;
+}
+
 .users-list-element-loader{
 	list-style:none;
 	width:100% !important;
@@ -1180,6 +1191,10 @@ textarea.about-contact-input{
 	text-decoration:none;
 	transition:color 250ms;
 	cursor:pointer;
+}
+
+.users-element-admin{
+	display:inline-block;
 }
 
 .users-list-element-name, .users-element-email, .users-element-date{

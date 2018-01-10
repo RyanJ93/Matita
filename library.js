@@ -384,6 +384,7 @@ var application = {
 						email: email
 					}, function(error, element){
 						if ( error ){
+							console.log(error);
 							return reject(0);
 						}
 						if ( element === null ){
@@ -449,6 +450,7 @@ var application = {
 						'_id': new mongodb.ObjectID(request.session.user.id)
 					}, function(error, element){
 						if ( error ){
+							console.log(error);
 							return reject();
 						}
 						if ( element === null ){
@@ -465,6 +467,7 @@ var application = {
 							'remember': request.cookies.user
 						}, function(error, element){
 							if ( error ){
+								console.log(error);
 								return reject();
 							}
 							if ( element === null ){
@@ -506,6 +509,7 @@ var application = {
 					skip: ( page - 1 ) * 20
 				}).toArray(function(error, elements){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					let ret = new Array();
@@ -532,14 +536,16 @@ var application = {
 		*/
 		remove: function(user, removeContents){
 			return new Promise(function(resolve, reject){
-				let user = typeof(user) === 'string' ? new mongodb.ObjectID(user) : new mongodb.ObjectID(user.id);
-				application.database.findOne({
+				let id = typeof(user) === 'string' ? user : user.id;
+				user = new mongodb.ObjectID(id);
+				application.database.collection('users').findOne({
 					'_id': {
-						'$not': user
+						'$ne': user
 					},
 					admin: true
 				}, function(error, element){
 					if ( error ){
+						console.log(error);
 						return reject(0);
 					}
 					if ( element === null ){
@@ -549,6 +555,7 @@ var application = {
 						'_id': user
 					}, function(error){
 						if ( error ){
+							console.log(error);
 							return reject(0);
 						}
 						if ( removeContents !== true ){
@@ -558,6 +565,7 @@ var application = {
 							author: user
 						}).toArray(function(error, elements){
 							if ( error ){
+								console.log(error);
 								return reject(0);
 							}
 							for ( let i = 0 ; i < elements.length ; i++ ){
@@ -585,9 +593,11 @@ var application = {
 					'_id': user
 				}, function(error, element){
 					if ( error ){
+						console.log(error);
 						return reject(0);
 					}
 					if ( element === null ){
+						console.log(error);
 						return reject(1);
 					}
 					application.database.collection('users').update({
@@ -600,7 +610,8 @@ var application = {
 						}
 					}, function(error){
 						if ( error ){
-							return reject();
+							console.log(error);
+							return reject(0);
 						}
 						if ( element.email !== data.email ){
 							let title = 'E-mail address changed.';
@@ -629,6 +640,7 @@ var application = {
 					'_id': user
 				}, function(error, element){
 					if ( error ){
+						console.log(error);
 						return reject(0);
 					}
 					if ( element === null ){
@@ -645,6 +657,7 @@ var application = {
 						}
 					}, function(error){
 						if ( error ){
+							console.log(error);
 							return reject(0);
 						}
 						let text = 'Hello ' + ( element.name === '' || element.surname === '' ? ( element.name + element.surname ) : ( element.name + ' ' + element.surname ) ) + '!';
@@ -677,13 +690,14 @@ var application = {
 				};
 				application.database.collection('users').insertOne(user, function(error){
 					if ( error ){
+						console.log(error);
 						return reject(( error.code === 11000 ? 1 : 0 ));
 					}
 					delete user.password;
 					delete user.date;
 					let text = 'Hello ' + ( user.name === '' || user.surname === '' ? ( user.name + user.surname ) : ( user.name + ' ' + user.surname ) ) + '!';
 					text += 'Your account has successfully been created!';
-					application.utils.sendGenericEmail(element.email, 'Welcome!', text);
+					application.utils.sendGenericEmail(user.email, 'Welcome!', text);
 					resolve(user);
 				});
 			});
@@ -708,6 +722,7 @@ var application = {
 					'_id': authorID
 				}, function(error, element){
 					if ( error ){
+						console.log(error);
 						return reject(0);
 					}
 					if ( element === null ){
@@ -731,6 +746,7 @@ var application = {
 					};
 					application.database.collection('articles').insertOne(article, function(error, element){
 						if ( error ){
+							console.log(error);
 							return reject(( error.code === 11000 ? 1 : 0 ));
 						}
 						if ( tags !== null ){
@@ -852,6 +868,7 @@ var application = {
 				}
 				request.toArray(function(error, elements){
 					if ( error ){
+						console.log(error);
 						return reject(error);
 					}
 					if ( mode === 'suggested' && elements.length === 0 ){
@@ -895,6 +912,7 @@ var application = {
 						}
 					}).toArray(function(error, elements){
 						if ( error ){
+							console.log(error);
 							return reject(error);
 						}
 						for ( let i = 0 ; i < ret.length ; i++ ){
@@ -922,6 +940,7 @@ var application = {
 								user: new mongodb.ObjectID(params.user.id)
 							}).toArray(function(error, elements){
 								if ( error ){
+									console.log(error);
 									return reject(error);
 								}
 								for ( let i = 0 ; i < elements.length ; i++ ){
@@ -954,6 +973,7 @@ var application = {
 					'_id': article
 				}, function(error, element){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					if ( element === null ){
@@ -977,18 +997,21 @@ var application = {
 						'_id': article
 					}, function(error){
 						if ( error ){
+							console.log(error);
 							return reject();
 						}
 						application.database.collection('comments').deleteMany({
 							'reference': article
 						}, function(error){
 							if ( error ){
+								console.log(error);
 								return reject();
 							}
 							application.database.collection('appreciations').deleteMany({
 								'reference': article
 							}, function(error){
 								if ( error ){
+									console.log(error);
 									return reject();
 								}
 								application.database.collection('tags').deleteMany({
@@ -997,6 +1020,7 @@ var application = {
 									}
 								}, function(error){
 									if ( error ){
+										console.log(error);
 										return reject();
 									}
 									resolve();
@@ -1020,6 +1044,7 @@ var application = {
 					url: url
 				}, function(error, element){
 					if ( error ){
+						console.log(error);
 						return reject(0);
 					}
 					if ( element === null ){
@@ -1029,6 +1054,7 @@ var application = {
 						_id: element.author
 					}, function(error, author){
 						if ( error ){
+							console.log(error);
 							return reject(0);
 						}
 						if ( author === null ){
@@ -1050,6 +1076,7 @@ var application = {
 								user: new mongodb.ObjectID(user.id)
 							}, function(error, appreciation){
 								if ( error ){
+									console.log(error);
 									return reject(0);
 								}
 								if ( appreciation !== null ){
@@ -1079,6 +1106,7 @@ var application = {
 					}
 				}).toArray(function(error, elements){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					let ret = new Array();
@@ -1103,6 +1131,7 @@ var application = {
 			return new Promise(function(resolve, reject){
 				let handle = function(error, count){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					return resolve(count);
@@ -1140,6 +1169,7 @@ var application = {
 					identifier: identifier
 				}, function(error, element){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					if ( element !== null ){
@@ -1151,6 +1181,7 @@ var application = {
 						date: new Date()
 					}, function(error){
 						if ( error ){
+							console.log(error);
 							return reject();
 						}
 						application.database.collection('articles').update({
@@ -1161,6 +1192,7 @@ var application = {
 							}
 						}, function(error){
 							if ( error ){
+								console.log(error);
 								return reject();
 							}
 							resolve();
@@ -1185,6 +1217,7 @@ var application = {
 					revocation: application.utils.createToken(32)
 				}, function(error, collection){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					resolve();
@@ -1203,6 +1236,7 @@ var application = {
 					email: email
 				}, function(error){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					resolve();
@@ -1221,6 +1255,7 @@ var application = {
 					revocation: token
 				}, function(error){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					resolve();
@@ -1267,7 +1302,6 @@ var application = {
 					template = template.replace('{tags}', tags).replace('{author}', author);
 					application.database.collection('subscribers').find(null).toArray(function(error, elements){
 						if ( error ){
-							console.log('Unable to send newsletter.');
 							console.log(error);
 							return reject();
 						}
@@ -1303,6 +1337,7 @@ var application = {
 					skip: ( page - 1 ) * 20
 				}).toArray(function(error, elements){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					let ret = new Array();
@@ -1338,6 +1373,7 @@ var application = {
 					skip: ( page - 1 ) * 20
 				}).toArray(function(error, elements){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					var ret = new Array(), authors = new Array();
@@ -1374,6 +1410,7 @@ var application = {
 						}
 					}).toArray(function(error, elements){
 						if ( error ){
+							console.log(error);
 							return reject();
 						}
 						for ( let i = 0 ; i < ret.length ; i++ ){
@@ -1414,6 +1451,7 @@ var application = {
 					'_id': user
 				}, function(error, element){
 					if ( error ){
+						console.log(error);
 						return reject(0);
 					}
 					if ( element === null ){
@@ -1429,6 +1467,7 @@ var application = {
 						skip: ( page - 1 ) * 20
 					}).toArray(function(error, elements){
 						if ( error ){
+							console.log(error);
 							return reject(0);
 						}
 						let ret = new Array(), articles = new Array();
@@ -1450,6 +1489,7 @@ var application = {
 							}
 						}).toArray(function(error, elements){
 							if ( error ){
+								console.log(error);
 								return reject(0);
 							}
 							for ( let i = 0 ; i < ret.length ; i++ ){
@@ -1486,6 +1526,7 @@ var application = {
 					'_id': article
 				}, function(error, element){
 					if ( error ){
+						console.log(error);
 						return reject(0);
 					}
 					if ( element === null ){
@@ -1503,6 +1544,7 @@ var application = {
 							'_id': author
 						}, function(error, element){
 							if ( error ){
+								console.log(error);
 								return reject(0);
 							}
 							if ( element === null ){
@@ -1510,7 +1552,8 @@ var application = {
 							}
 							application.database.collection('comments').insertOne(comment, function(error, element){
 								if ( error ){
-									return reject();
+									console.log(error);
+									return reject(0);
 								}
 								application.database.collection('articles').update({
 									'_id': article
@@ -1520,6 +1563,7 @@ var application = {
 									}
 								}, function(error){
 									if ( error ){
+										console.log(error);
 										return reject(0);
 									}
 									comment.id = element.ops[0]['_id'].toString();
@@ -1537,7 +1581,8 @@ var application = {
 					}else{
 						application.database.collection('comments').insertOne(comment, function(error, element){
 							if ( error ){
-								return reject();
+								console.log(error);
+								return reject(0);
 							}
 							application.database.collection('articles').update({
 								'_id': article
@@ -1547,6 +1592,7 @@ var application = {
 								}
 							}, function(error){
 								if ( error ){
+									console.log(error);
 									return reject(0);
 								}
 								comment.id = element.ops[0]['_id'].toString();
@@ -1580,6 +1626,7 @@ var application = {
 					'_id': id
 				}, function(error, element){
 					if ( error ){
+						console.log(error);
 						return reject(0);
 					}
 					if ( user.admin !== true && user.id !== ( element.author === null ? null : element.author.toString() ) ){
@@ -1589,6 +1636,7 @@ var application = {
 						'_id': id
 					}, function(error){
 						if ( error ){
+							console.log(error);
 							return reject(0);
 						}
 						application.database.collection('articles').update({
@@ -1599,6 +1647,7 @@ var application = {
 							}
 						}, function(error){
 							if ( error ){
+								console.log(error);
 								return reject(0);
 							}
 							resolve();
@@ -1623,6 +1672,7 @@ var application = {
 					author: new mongodb.ObjectID(user)
 				} )).toArray(function(error, elements){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					for ( let i = 0 ; i < elements.length ; i++ ){
@@ -1667,6 +1717,7 @@ var application = {
 					positive: positive
 				}, function(error, collection){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					if ( collection === null ){
@@ -1675,6 +1726,7 @@ var application = {
 							positive: !positive
 						}, function(error, collection){
 							if ( error ){
+								console.log(error);
 								return reject();
 							}
 							if ( collection !== null ){
@@ -1683,6 +1735,7 @@ var application = {
 									positive: !positive
 								}, function(error){
 									if ( error ){
+										console.log(error);
 										return reject();
 									}
 									application.database.collection('articles').update({
@@ -1695,6 +1748,7 @@ var application = {
 										}
 									}, function(error){
 										if ( error ){
+											console.log(error);
 											return reject();
 										}
 										application.database.collection('appreciations').insertOne({
@@ -1717,6 +1771,7 @@ var application = {
 												}
 											}, function(error){
 												if ( error ){
+													console.log(error);
 													return reject();
 												}
 												resolve(appreciation);
@@ -1732,6 +1787,7 @@ var application = {
 									positive: positive
 								}, function(error){
 									if ( error ){
+										console.log(error);
 										return reject();
 									}
 									appreciation[( positive === true ? 'like' : 'unlike' )] = true;
@@ -1745,6 +1801,7 @@ var application = {
 										}
 									}, function(error){
 										if ( error ){
+											console.log(error);
 											return reject();
 										}
 										resolve(appreciation);
@@ -1758,6 +1815,7 @@ var application = {
 							positive: positive
 						}, function(error){
 							if ( error ){
+								console.log(error);
 								return reject();
 							}
 							application.database.collection('articles').update({
@@ -1770,6 +1828,7 @@ var application = {
 								}
 							}, function(error){
 								if ( error ){
+									console.log(error);
 									return reject();
 								}
 								resolve(appreciation);
@@ -1795,6 +1854,7 @@ var application = {
 					author: new mongodb.ObjectID(user)
 				} )).toArray(function(error, elements){
 					if ( error ){
+						console.log(error);
 						return reject();
 					}
 					for ( let i = 0 ; i < elements.length ; i++ ){
