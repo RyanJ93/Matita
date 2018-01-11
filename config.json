@@ -11,12 +11,12 @@
 	"https":{
 		
 	},
-	"domain": "www.blog.com",
+	"domain": "www.yourdomain.com",
 	"mail": {
 		"sendmail": "/usr/sbin/sendmail",
 		"from": {
-			"generic": "info@myblog.com",
-			"newsletter": "info@myblog.com"
+			"generic": "info@yourdomain.com",
+			"newsletter": "newsletter@yourdomain.com"
 		}
 	}
 }

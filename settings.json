@@ -75,10 +75,10 @@
 	"social":[
 		{
 			"id": "facebook",
-			"link": "http://"
+			"link": "http://www.facebook.com"
 		}, {
 			"id": "twitter",
-			"link": "http://"
+			"link": "http://www.twitter.com"
 		}
 	],
 	"components": {
@@ -92,20 +92,20 @@
 	},
 	"feed": {
 		"enabled": true,
-		"title": "My blog",
-		"description": "This is my wonderful blog!"
+		"title": "Matita",
+		"description": "Just a very simple blogging software written in Node.js"
 	},
 	"mail": {
 		"generic": {
 			"coverImage": "/Resources/mail_cover.png",
-			"title": "My blog",
+			"title": "Matita",
 			"subtitle": ""
 		},
 		"newsletter": {
 			"coverImage": "/Resources/mail_cover.png",
-			"title": "My blog",
-			"subtitle": "Your newsletter from my blog.",
-			"subject": "Your newsletter from my blog."
+			"title": "Matita",
+			"subtitle": "Your newsletter from Matita.",
+			"subject": "Your newsletter from Matita."
 		}
 	}
 }
