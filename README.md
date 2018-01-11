@@ -1,7 +1,7 @@
 # Matita
-Matita is a simple blogging software written using Node.js, Express and MongoDB.
+Matita is an example of a very simple blogging software written using Node.js, Express and MongoDB.
 I created this software in order to learn more about Node.js world, working with the framework Express and MongoDB.
-It provides very basic features, such article creations, comments, user registration/login.
+It provides very basic features for now, such article creations, comments and user registration/login.
 
 # Installation and usage
 
