@@ -3,6 +3,7 @@
 	"version": "1.1.0",
 	"description": "Just a very simple blogging software written in Node.js",
 	"main": "app.js",
+	"homepage": "https://github.com/RyanJ93/Matita.git",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -10,11 +11,22 @@
 		"type": "git",
 		"url": "git+https://github.com/RyanJ93/Matita.git"
 	},
-	"author": "Enrico Sola",
-	"license": "ISC",
+	"author": {
+		"name": "Enrico Sola",
+		"url": "https://www.enricosola.com"
+	},
+	"licenses": [
+		{
+			"type": "GPLv3",
+			"url": "https://github.com/RyanJ93/Matita/blob/master/LICENSE.md"
+		}
+	],
 	"bugs": {
 		"url": "https://github.com/RyanJ93/Matita/issues"
 	},
+	"keywords": [
+		"blog"
+	],
 	"homepage": "https://github.com/RyanJ93/Matita#readme",
 	"dependencies": {
 		"body-parser": "^1.18.2",

@@ -5,16 +5,16 @@
 		},
 		"main": {
 			"icon": "/Resources/icon.png",
-			"title": "Welcome Matita!",
+			"title": "Welcome to Matita!",
 			"subtitle": "Just a very simple blogging software written in Node.js"
 		},
 		"resume": {
-			"title": "Welcome Matita!",
+			"title": "Welcome to Matita!",
 			"text": "Matita is a very simple open source blogging software created while learning more about Node.js and MongoDB.",
 			"cover": {
 				"src": "/Resources/cover.jpg",
-				"alternativeText": "Welcome Matita!",
-				"title": "Welcome Matita!"
+				"alternativeText": "Welcome to Matita!",
+				"title": "Welcome to Matita!"
 			}
 		},
 		"contacts": {
