@@ -16,6 +16,7 @@ Before running the application, make sure that the following dependencies are co
 * NodeMailer ([NPM](https://www.npmjs.com/package/nodemailer))
 
 It requires Node.js version 8 or greater and MongoDB version 3.6 or greater.
+To install all required dependencies, you can run "npm install" in the project directory, all missing packages will be installed in a the "node_modules" directory, that will be created if missing.
 
 Once the environment configuration is done, you need to change configuration and settings by editing the files "settings.json" and "config.json", note that to apply changes you need to restart the application.
 To change contents in the "about" page you need to edit the HTML page itself.

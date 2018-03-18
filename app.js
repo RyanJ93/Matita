@@ -162,12 +162,13 @@ if ( typeof(configuration.database.name) !== 'string' && configuration.database.
 	console.log('Invalid database name.');
 	process.exit();
 }
-connection += '/' + configuration.database.name;
-mongodb.connect(connection, function(error, database){
+mongodb.connect(connection, function(error, client){
 	if ( error ){
 		console.log(error);
 		process.exit();
 	}
+	//According to newer driver versions, a client is now returned, then we need to switch to the database using this method.
+	var database = client.db(configuration.database.name);
 	//Setting up database connection for external library.
 	application.utils.setConnection(database);
 	//Ensuring indexes.
